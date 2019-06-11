@@ -10,24 +10,29 @@ class TaskList {
 	}
 
 	sort(sort_method) {
-		if(sort_method === 'alpha')
-			this.tasks = this.tasks.sort(function(a,b){
-			  if (a.item.toLowerCase() < b.item.toLowerCase()) return -1
-			  if (a.item.toLowerCase() > b.item.toLowerCase()) return  1
-			  return 0
-			})
-		else if(sort_method === 'asc_prio')
-			this.tasks = this.tasks.sort(function(a,b){
-			  if (a.priority < b.priority) return -1
-			  if (a.priority > b.priority) return  1
-			  return 0
-			})
-		else if(sort_method === 'desc_prio')
-			this.tasks = this.tasks.sort(function(a,b){
-			  if (a.priority < b.priority) return  1
-			  if (a.priority > b.priority) return -1
-			  return 0
-			})
+		switch(sort_method) {
+
+			case 'alpha':
+				this.tasks = this.tasks.sort(function(a,b){
+				  if (a.item.toLowerCase() < b.item.toLowerCase()) return -1
+				  if (a.item.toLowerCase() > b.item.toLowerCase()) return  1
+				  return 0
+				})
+
+			case 'asc_prio':
+					this.tasks = this.tasks.sort(function(a,b){
+					  if (a.priority < b.priority) return -1
+					  if (a.priority > b.priority) return  1
+					  return 0
+					})
+
+			case 'desc_prio':
+				this.tasks = this.tasks.sort(function(a,b){
+				  if (a.priority < b.priority) return  1
+				  if (a.priority > b.priority) return -1
+				  return 0
+				})
+		}
 	}
 
 	render() {
@@ -35,8 +40,5 @@ class TaskList {
 		let html = ''
 		this.tasks.forEach(tli => html += tli.render())
 		return html
-	}
-
-	alphabetical(a, b) {
 	}
 }

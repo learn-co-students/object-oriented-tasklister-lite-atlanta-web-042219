@@ -16,6 +16,6 @@ class TaskListItem {
   }
 
   render() {
-  	return `<li style="color:${this.color};">${this.item}  &nbsp; <button class="delete-btn">Delete</button></li>`
+  	return `<li style="color:${this.color};">${this.item}  &nbsp; <button class="edit-btn">Edit</button>  &nbsp; <button class="delete-btn">Delete</button></li>`
   }
 }

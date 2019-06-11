@@ -16,11 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
 	// FUNCTION DEFINITIONS //
 	//											//
 	function handleClickEvents(e) {
-		// console.log(e.target)
 		if(e.target.id === 'new-task-btn')
 			new_task(e)
 		else if(e.target.className === 'delete-btn')
 			e.target.parentElement.remove()
+		else if(e.target.className === 'edit-btn')
+			edit_task(e.target)
+	}
+
+	function edit_task(button) {
+		// button.parentElement.remove()
+		// new_task(e)
+		button.parentElement.style.color = taskForm['priority'].value
+		button.parentElement.innerHTML = `${taskForm['new-task-description'].value}  &nbsp; <button class="edit-btn">Edit</button>  &nbsp; <button class="delete-btn">Delete</button>`
+		taskForm.reset()
 	}
 
 	function sort_tasks(e) {
@@ -30,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function new_task(e) {
   	e.preventDefault()
-  	
+
   	let newTask = new TaskListItem(taskForm['new-task-description'].value, taskForm['priority'].value)
   	listDiv.innerHTML += newTask.render()
 
