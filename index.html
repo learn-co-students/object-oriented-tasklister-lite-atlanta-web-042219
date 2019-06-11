@@ -12,11 +12,22 @@
     <form id="create-task-form" action="#" method="post">
       <label for="new-task-description">Task description:</label>
       <input type="text" id="new-task-description" name="new-task-description" placeholder="description">
-      <input type="submit" value="Create New Task">
+      <select name="priority">
+        <option value="Black">Add a priority color!</option>
+        <option value="Green">Green</option>
+        <option value="Orange">Orange</option>
+        <option value="Red">Red</option>
+      </select>
+      <input id="new-task-btn" type="submit" value="Create New Task">
     </form>
 
-    <div id="list">
-    </div>
+    <div id="list"></div>
+    <select id="sort">
+      <option selected disabled>Sort Options</option>
+      <option value="alpha">Alphabetically</option>
+      <option value="asc_prio">Ascending Priority</option>
+      <option value="desc_prio">Descending Priority</option>
+    </select>
 
     <script src="./src/index.js"></script>
     <script src="./src/TaskList.js"></script>
