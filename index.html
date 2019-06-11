@@ -1,10 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Flatiron Task Lister</title>
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <div id="main-content">
     <h1>Task Lister Lite™️</h1>
@@ -12,10 +14,20 @@
     <form id="create-task-form" action="#" method="post">
       <label for="new-task-description">Task description:</label>
       <input type="text" id="new-task-description" name="new-task-description" placeholder="description">
+      <select id="new-task-rate">
+        <option value="1">Red</option>
+        <option value="2">Yellow</option>
+        <option value="3">Green</option>
+      </select>
       <input type="submit" value="Create New Task">
     </form>
 
+    <div>
+      <button>Ugliest Sort Button Ever</button>
+    </div>
+
     <div id="list">
+
     </div>
 
     <script src="./src/index.js"></script>
@@ -24,4 +36,5 @@
   </div>
 
 </body>
+
 </html>
