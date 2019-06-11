@@ -4,7 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const listContainer = document.getElementById("list");
   const renderApp = () => (listContainer.innerHTML = taskList.render());
 
-  // Add Form Behavior Here!
+  const taskForm = document.getElementById('create-task-form')
+  taskForm.addEventListener('submit', submitTask)
+
+  function submitTask(e) {
+    e.preventDefault()
+
+    const newTaskDesc = document.getElementById('new-task-description')
+    taskList.addTask(newTaskDesc.value)
+    
+    newTaskDesc.value = ''
+
+    renderApp()
+  }
 
   renderApp()
 });
