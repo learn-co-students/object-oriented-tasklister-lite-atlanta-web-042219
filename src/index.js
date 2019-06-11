@@ -1,10 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
   const taskList = new TaskList();
 
-  const listContainer = document.getElementById("list");
-  const renderApp = () => (listContainer.innerHTML = taskList.render());
-
   // Add Form Behavior Here!
+  document.addEventListener('submit', handleSubmit)
+  document.addEventListener('click', handleClick)
 
-  renderApp()
+  function handleSubmit(e) {
+    e.preventDefault()
+    taskList.render()
+    e.target.reset()
+  }
+
+  function handleClick(e) {
+    if (e.target.className === 'delete') {
+      taskList.deleteTask(e)
+    }
+    if (e.target.innerText === 'Ugliest Sort Button Ever') {
+      taskList.sort()
+      taskList.render()
+    }
+  }
 });
